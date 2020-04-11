@@ -1,0 +1,9 @@
+# When should the players respawn randomly?
+enabled:
+  on-first-join: true
+  on-death: true
+
+# Where should the players respawn?
+location:
+  world: "world"
+  radius: 5000
