@@ -61,11 +61,11 @@ public class RandomRespawnPlugin extends JavaPlugin implements Listener {
 
     @EventHandler
     public void onPlayerRespawn(PlayerRespawnEvent event) {
-        if (!enabledOnDeath || event.isBedSpawn()) {
+        if (!enabledOnDeath || event.isBedSpawn() || event.isAnchorSpawn()) {
             return;
         }
 
-        World world = event.getRespawnLocation().getWorld();
+        World world = getServer().getWorld(respawnWorld);
         Location respawnLocation = getSafeLocation(world);
         if (respawnLocation != null) {
             event.setRespawnLocation(respawnLocation);
