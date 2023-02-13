@@ -43,7 +43,7 @@ public class RandomRespawnPlugin extends JavaPlugin implements Listener {
             public void run() {
                 storeSafeLocationInCache();
             }
-        }, 200, 200);
+        }, 20, 20);
     }
 
     @EventHandler
@@ -100,14 +100,14 @@ public class RandomRespawnPlugin extends JavaPlugin implements Listener {
         getLogger().info("Block [" + x + ", " + z + "] is " + type.name() + " (" +  world.getBiome(x, block.getY(), z) + ")");
 
         if (type == Material.GRASS_BLOCK || type == Material.STONE || type == Material.SAND || type == Material.PODZOL) {
-            return block.getLocation().add(0.5, 2.5, 0.5);
+            return block.getLocation().add(0.5, 1.5, 0.5);
         }
 
         return null;
     }
 
     private void storeSafeLocationInCache() {
-        // Every 10 seconds, try to cache a safe location.
+        // Every second, try to cache a safe location.
         if (safeLocation != null) {
             return;
         }
